@@ -25,7 +25,7 @@ function displayTopProperties(properties, limit) {
                     </div>
                     <div class="p-4 pb-0">
                         <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                        <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                        <a class="d-block h5 mb-2" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                     </div>
                     <div class="d-flex border-top">
@@ -56,7 +56,7 @@ function displayRentProperty(properties,limit){
                     </div>
                     <div class="p-4 pb-0">
                         <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                        <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                        <a class="d-block h5 mb-2" href="" >${property.property_name}</a>
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                     </div>
                     <div class="d-flex border-top">
@@ -69,7 +69,6 @@ function displayRentProperty(properties,limit){
         `;
         containerent.innerHTML += propertyHTML;
     });
-
 }
 
 function displaySellProperty(properties,limit){

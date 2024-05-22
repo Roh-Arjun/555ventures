@@ -6,7 +6,9 @@ async function fetchProperties(property_type,location) {
         if(property_type===undefined||location===undefined){
             displayAllProperties(properties)
         }else{
-        displaySearchProperty(properties,property_type,location)
+        displaySearchProperty(properties,property_type,location);
+        displaySellProperty(properties,property_type,location);
+        displayRentProperty(properties,property_type,location);
         }
     } catch (error) {
         console.error('Error fetching properties:', error);
@@ -83,7 +85,7 @@ function displaySearchProperty(properties,property_type,location){
     let containerent = document.getElementById('property-all-container');
     containerent.innerHTML = ''; // Clear any existing content
     const filteredProperties = properties.filter(property => property.type===property_type && property.location===location);
-    console.log(filteredProperties.length)
+    console.log("search : ",filteredProperties.length)
     if(filteredProperties.length!=0){
         document.getElementById('warning-search').style.display = 'none';
         document.getElementById('warning-sell').style.display = 'none';
@@ -134,3 +136,77 @@ document.getElementById('searchButton').addEventListener('click', function() {
        
     }
 });
+
+function displaySellProperty(properties,property_type,location){
+    let containersell = document.getElementById('property-container-sell');
+    containersell.innerHTML = ''; // Clear any existing content
+    const filteredPropertiesell = properties.filter(property =>property.type===property_type && property.location===location && property.Availability === "Sell");
+
+    console.log("sell : ",filteredPropertiesell.length)
+    if(filteredPropertiesell.length!=0){
+        document.getElementById('warning-sell').style.display = 'none';
+        filteredPropertiesell.forEach(function(property) {
+            let propertyHTML = `
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="property-item rounded overflow-hidden">
+                        <div class="position-relative overflow-hidden">
+                            <a href=""><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                            <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
+                            <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
+                        </div>
+                        <div class="p-4 pb-0">
+                            <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
+                            <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>${property.sqft}</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>${property.bedroom}</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom}</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+            containersell.innerHTML += propertyHTML;
+        });
+}else{
+    document.getElementById('warning-sell').style.display = 'block';
+}
+}
+
+function displayRentProperty(properties,property_type,location){
+    let containerent = document.getElementById('property-container-rent');
+    containerent.innerHTML = ''; // Clear any existing content
+    const filteredPropertiesrent = properties.filter(property =>property.type===property_type && property.location===location && property.Availability === "Rent");
+
+    console.log("rent : ",filteredPropertiesrent.length)
+    if(filteredPropertiesrent.length!=0){
+        document.getElementById('warning-rent').style.display = 'none';
+        filteredPropertiesrent.forEach(function(property) {
+            let propertyHTML = `    
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="property-item rounded overflow-hidden">
+                        <div class="position-relative overflow-hidden">
+                            <a href=""><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                            <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
+                            <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
+                        </div>
+                        <div class="p-4 pb-0">
+                            <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
+                            <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>${property.sqft}</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>${property.bedroom}</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom}</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+            containerent.innerHTML += propertyHTML;
+        });
+    }else{
+        document.getElementById('warning-rent').style.display = 'block';
+    }
+}
