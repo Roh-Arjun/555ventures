@@ -64,7 +64,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
                         <!-- <a href="#" class="nav-item nav-link">About</a> -->
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
@@ -81,6 +81,42 @@
         </div>
         <!-- Navbar End -->
 
+ <!-- Search Start -->
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" id="searchKeyword" class="form-control border-0 py-3" placeholder="Search Keyword">
+                            </div>
+                            <div class="col-md-4">
+                                <select id="propertyType" class="form-select border-0 py-3">
+                                    <option selected>Property Type</option>
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commerical">Commerical</option>
+                                    <option value="Plot">Plot</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select id="location" class="form-select border-0 py-3">
+                                    <option selected>Location</option>
+                                    <option value="Mysore">Mysore</option>
+                                    <option value="Bengaluru">Bengaluru</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="searchButton" class="btn btn-dark border-0 w-100 py-3">Search</button>
+                    </div>
+                </div>
+                <div id="warning" class="text-danger mt-2" style="display: none;">
+                    Please select both Property Type and Location.
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
 
         <!-- Property List Start -->
         <div class="container-xxl py-5">
@@ -113,12 +149,22 @@
                             <div id="property-all-container" class="row">
                                 <!-- Properties will be inserted here -->
                             </div>
-                            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
-                            </div>
+                            <div id="warning-search" class="alert alert-warning" role="alert" style="display:none">
+                                Sorry!! No Search Found
+                              </div>
                         </div>
                     </div>
-                   
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <!-- my code chtgpt -->
+                            <div id="property-container-sell" class="row">
+                                <!-- Properties will be inserted here -->
+                            </div>
+                            <div id="warning-sell" class="alert alert-warning" role="alert" style="display:none">
+                                Sorry!! No Search Found
+                              </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
