@@ -25,7 +25,7 @@ function displayTopProperties(properties, limit) {
                     </div>
                     <div class="p-4 pb-0">
                         <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                        <a class="d-block h5 mb-2" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                     </div>
                     <div class="d-flex border-top">
@@ -38,6 +38,11 @@ function displayTopProperties(properties, limit) {
         `;
         container.innerHTML += propertyHTML;
     });
+}
+
+function handleClick(id){
+    console.log(id)
+    sessionStorage.setItem('shareid', id);
 }
 
 function displayRentProperty(properties,limit){
@@ -122,6 +127,27 @@ document.getElementById('searchButton').addEventListener('click', function() {
         window.location.href = 'property.html' + queryString;
     }
 });
+
+document.getElementById('shareBtn').addEventListener('click', event => {
+   let id= sessionStorage.getItem('shareid');
+   console.log("from share modulw", id)
+    // Check for Web Share api support
+    if (navigator.share) {
+      // Browser supports native share api
+      navigator.share({
+        text: 'Please check rohit\'s website: ',
+        url: `https://roh-arjun.github.io/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+      }).then(() => {
+        console.log('Thanks for sharing!');
+      })
+        .catch((err) => console.error(err));
+    } else {
+      // Fallback
+      alert("The current browser does not support the share function. Please, manually share the link")
+    }
+  }
+
+);
 
 // Fetch and display properties on page load
 fetchProperties();

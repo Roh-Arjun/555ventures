@@ -438,3 +438,98 @@
     padding-right: 0;
     border-right: none;
 }
+
+
+/* local  guider css */
+/* .page-title{
+    padding-top: 25px;
+}
+
+.heading-page
+  {
+      text-transform: uppercase;
+      font-size: 43px;
+      font-weight: bolder;
+      letter-spacing: 3px;
+      color: #7D3F98;
+      font-family: mistral;
+      text-decoration: underline;
+  }
+  img {
+    vertical-align: middle;
+    width: auto;
+    height: 300px;
+}
+
+.carousel-control-next,
+.carousel-control-prev{
+    width:100px;
+    height: auto; 
+    background: linear-gradient(-50deg, #c850c0, #4158d0);   
+}
+
+.carousel-indicators .active{
+    background-color: #7D3F98;  
+}
+
+p{
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:medium;
+}
+
+.table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width:auto;
+    color:white;    
+    font-size: medium;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    border: 3px solid black ;
+    display: inline-block;
+}
+.table-striped{
+    background-color:red;
+}
+
+.table-striped tr:nth-child(odd){
+    background-color: #4158d0;  
+    border: 5px solid black ;
+
+}
+.table-striped tr:nth-child(even){
+    background-color:#c850c0;
+    border: 5px solid black ;
+
+}
+td{
+    border-right:3px solid black;
+}
+
+@media (max-width:797px) {
+    .heading-page{
+        font-size: 1.5rem;
+    }
+
+    .carousel-control-next,
+    .carousel-control-prev{
+        width:20px;
+        height: auto;   
+    }
+    .caimg {
+        display: block;
+        width: 100%;
+        height: auto; 
+        max-width: 100%;
+        border-radius: 0; 
+    }
+}
+.carousel-item{
+    text-align:center;
+} */
+
+
