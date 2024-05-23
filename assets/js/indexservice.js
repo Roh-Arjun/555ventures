@@ -135,7 +135,7 @@ document.getElementById('shareBtn').addEventListener('click', event => {
     if (navigator.share) {
       // Browser supports native share api
       navigator.share({
-        text: 'Please check rohit\'s website: ',
+        text: 'Please check this property: ',
         url: `https://roh-arjun.github.io/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
       }).then(() => {
         console.log('Thanks for sharing!');

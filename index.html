@@ -9,12 +9,53 @@
     <meta content="" name="description">
 
     <style>
-        @media (max-width: 576px) {
+        /* @media (max-width: 576px) {
         .property-types .col-sm-6 {
             display: flex;
-            max-width: 150px;
+            max-width: 100px;
+           
+            
         }
+        .property-types{
+            padding-left: 0px!important;
+            padding-right: 0px!important;
+            margin-left: 0px!important;
+            margin-right: 0px!important;
+            border: 2px solid black;
+        }
+        .mar+.mar{
+            margin-left: 10px!important;
+        }
+    } */
+
+    @media (max-width: 576px) {
+    .property-types {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-left: 0px!important;
+        padding-right: 0px!important;
+        margin-left: 0px!important;
+        margin-right: 0px!important;
+        /* border: 2px solid black; */
     }
+    .property-types .col-sm-6 {
+        display: flex;
+        max-width: calc(100% / 3 - 20px); /* Divide the width by 3 and subtract some margin */
+        flex: 0 0 calc(100% / 3 - 20px);
+        justify-content: center;
+        margin: 10px; /* Add some margin between items */
+    }
+    .mar+.mar {
+        margin-left: 10px!important;
+    }
+    .ptype{
+        font-size: 10px;
+    }
+    .pcount{
+        font-size: 10px;
+    }
+}
 
     .modal-dialog-centered {
         display: flex;
@@ -164,37 +205,37 @@
                     <h1 class="mb-3">Property Types</h1>
                     <!-- <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> -->
                 </div>
-                <div class="row g-4 property-types">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-4 property-types" style="display: flex; justify-content: center;">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp mar" data-wow-delay="0.1s">
                         <a class="cat-item d-block bg-light text-center rounded p-3">
                             <div class="rounded p-3">
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="assets/img/icon-apartment.png" alt="Icon">
                                 </div>
-                                <h6>Residental</h6>
-                                <span>123 Properties</span>
+                                <h6 class="ptype">Residental</h6>
+                                <span class="pcount">123 Properties</span>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp mar" data-wow-delay="0.3s">
                         <a class="cat-item d-block bg-light text-center rounded p-3">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="assets/img/icon-villa.png" alt="Icon">
                                 </div>
-                                <h6>Commerical</h6>
-                                <span>123 Properties</span>
+                                <h6 class="ptype">Commerical</h6>
+                                <span class="pcount">123 Properties</span>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp mar" data-wow-delay="0.5s">
                         <a class="cat-item d-block bg-light text-center rounded p-3">
                             <div class="rounded p-4">
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="assets/img/icon-house.png" alt="Icon">
                                 </div>
-                                <h6>Plot</h6>
-                                <span>123 Properties</span>
+                                <h6 class="ptype">Plot</h6>
+                                <span class="pcount">123 Properties</span>
                             </div>
                         </a>
                     </div>
@@ -212,7 +253,7 @@
                     <div class="col-lg-6">
                         <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
                             <h1 class="mb-3">Property Listing</h1>
-                            <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
+                            <!-- <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p> -->
                         </div>
                     </div>
                     <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
