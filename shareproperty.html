@@ -34,7 +34,6 @@
 
     <!-- Template Stylesheet -->
     <link href="assets/css/style.css" rel="stylesheet">
-
   
 </head>
 
@@ -80,13 +79,13 @@
             </nav>
         </div>
         <!-- Navbar End -->
-
+<div id="sharedelement">
             <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
                 <div class="col-md-6 p-5 mt-lg-5" style="text-align: center;">
-                    <h1 class="display-5 animated fadeIn mb-4">Property Name</h1>
+                    <h1 class="display-5 animated fadeIn mb-4" id="propertyName"></h1>
                     <!-- <p class="animated fadeIn mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet
                         sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p> -->
-                        <h3>Estimate Cost: <span>30,000</span></h3>
+                        <h3>Estimate Cost: <span id="estimateCost">30,000</span></h3>
                     <a href="#" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Contact</a>
                 </div>
                 <div class="col-md-6 animated fadeIn">
@@ -101,51 +100,55 @@
                 </div>
             </div>
         <div class="container">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iste alias, minus dolores nobis tempora atque autem odit dignissimos inventore molestiae. Maxime libero pariatur quo illo facilis soluta amet porro.
-        </p>
+        <p id="description"></p>
 
           <div class="table-container" style="text-align: center;">
           <table class="table table-striped">   
               <tr>
-                <td>Type</td>
-                <td>Residential</td>      
+                <td >Type</td>
+                <td id="pType"></td>      
               </tr>
               <tr>
                 <td>Property Type</td>
-                <td>Villa</td>  
+                <td id="propertyType"></td>  
               </tr>
               <tr>
                 <td>Square Feet</td>
-                <td>1500 sqft</td>      
+                <td ><span id="sqft"></span> sqft</td>      
               </tr>
               <tr>
                 <td>Furnished</td>
-                <td>Semi</td>     
+                <td id="furnished"></td>     
               </tr>
               <tr>
                 <td>Bedroom</td>
-                <td>3</td>     
+                <td id="bedroom"></td>     
               </tr>
               <tr>
                 <td>Bathroom</td>
-                <td>3</td>     
+                <td id="bathroom"></td>     
               </tr>
               <tr>
                 <td>Address</td>
-                <td>Niveditha nagar Mysore</td>     
+                <td id="address"></td>     
               </tr>
               <tr>
                 <td>Location</td>
-                <td>Mysore</td>     
+                <td id="location"></td>     
               </tr>
           </table>
         </div>
     </div>
+</div>
+    <!-- <div id="sharedproperty">
 
+    </div> -->
 
+    <div id="warning-shared" class="alert alert-warning" role="alert" style="display:none">
+        Sorry!! Post no longer avaliable, or please <a href="#">Contact Us</a>
+      </div>
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> -->
     </div>
 
 
@@ -160,6 +163,7 @@
  
      <!-- Template Javascript -->
      <script src="assets/js/main.js"></script>
+     <script src="assets/js/sharepropertyservice.js"></script>
 
 </body>
 </html>

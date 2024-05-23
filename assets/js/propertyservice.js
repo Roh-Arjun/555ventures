@@ -22,7 +22,7 @@ async function fetchProperties(property_type,location) {
 function displayAllProperties(properties) {
     var container = document.getElementById('property-all-container');
     container.innerHTML = ''; // Clear any existing content
-
+    document.getElementById("listedcount").innerHTML=properties.length
     properties.forEach(function(property) {
         var propertyHTML = `
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -86,6 +86,7 @@ function displaySearchProperty(properties,property_type,location){
     containerent.innerHTML = ''; // Clear any existing content
     const filteredProperties = properties.filter(property => property.type===property_type && property.location===location);
     console.log("search : ",filteredProperties.length)
+    document.getElementById("listedcount").innerHTML=filteredProperties.length
     if(filteredProperties.length!=0){
         document.getElementById('warning-search').style.display = 'none';
         document.getElementById('warning-sell').style.display = 'none';
@@ -131,7 +132,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
     } else {
         // Hide warning message
         document.getElementById('warning').style.display = 'none';
-
+        document.getElementById("featured-tab").click();
         fetchProperties(property_type,location)
        
     }

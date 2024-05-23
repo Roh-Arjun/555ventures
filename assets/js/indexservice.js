@@ -13,7 +13,7 @@ async function fetchProperties() {
 function displayTopProperties(properties, limit) {
     let container = document.getElementById('property-container');
     container.innerHTML = ''; // Clear any existing content
-
+    document.getElementById("listedcount").innerHTML=properties.length
     properties.slice(0, limit).forEach(function(property) {
         let propertyHTML = `
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -61,7 +61,7 @@ function displayRentProperty(properties,limit){
                     </div>
                     <div class="p-4 pb-0">
                         <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                        <a class="d-block h5 mb-2" href="" >${property.property_name}</a>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal" >${property.property_name}</a>
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                     </div>
                     <div class="d-flex border-top">
@@ -80,7 +80,8 @@ function displaySellProperty(properties,limit){
     let containersell = document.getElementById('property-container-sell');
     containersell.innerHTML = ''; // Clear any existing content
     const filteredPropertiesell = properties.filter(property => property.Availability === "Sell");
-
+    console.log(properties.length)
+    
     filteredPropertiesell.slice(0, limit).forEach(function(property) {
         let propertyHTML = `
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -92,7 +93,7 @@ function displaySellProperty(properties,limit){
                     </div>
                     <div class="p-4 pb-0">
                         <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                        <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                     </div>
                     <div class="d-flex border-top">
