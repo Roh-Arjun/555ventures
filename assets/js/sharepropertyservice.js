@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function propertySharedDisplay(properties,id){
     const propertyId = parseInt(id);
     const property = properties.find(p => p.id === propertyId);
-    // console.log(property)
+    //  console.log(property)
     if(property!=undefined){
         console.log("post exists");
         document.getElementById('warning-shared').style.display = 'none';

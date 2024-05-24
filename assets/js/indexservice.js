@@ -9,6 +9,7 @@ async function fetchProperties() {
         displayTopProperties(properties, 6);
         displayRentProperty(properties,6);
         displaySellProperty(properties,6);
+        displayLeaseProperty(properties,6)
     } catch (error) {
         console.error('Error fetching properties:', error);
     }
@@ -109,6 +110,37 @@ function displaySellProperty(properties,limit){
             </div>
         `;
         containersell.innerHTML += propertyHTML;
+    });
+}
+
+function displayLeaseProperty(properties,limit){
+    let containerent = document.getElementById('property-container-lease');
+    containerent.innerHTML = ''; // Clear any existing content
+    const filteredProperties = properties.filter(property => property.Availability === "Lease");
+
+    filteredProperties.slice(0, limit).forEach(function(property) {
+        let propertyHTML = `
+            <div class="col-lg-4 col-md-6 fadeInUp" >
+                <div class="property-item rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
+                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
+                    </div>
+                    <div class="p-4 pb-0">
+                        <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal" >${property.property_name}</a>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>${property.sqft}</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>${property.bedroom}</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom}</small>
+                    </div>
+                </div>
+            </div>
+        `;
+        containerent.innerHTML += propertyHTML;
     });
 }
 

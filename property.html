@@ -136,8 +136,11 @@
                             <li class="nav-item me-2">
                                 <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2" id="for-sell-tab">For Sell</a>
                             </li>
-                            <li class="nav-item me-0">
+                            <li class="nav-item me-2">
                                 <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-3" id="for-rent-tab">For Rent</a>
+                            </li>
+                            <li class="nav-item me-0">
+                                <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-4">For Lease</a>
                             </li>
                         </ul>
                     </div>
@@ -176,6 +179,17 @@
                               </div>
                         </div>
                     </div>
+                    <div id="tab-4" class="tab-pane fade show p-0 ">
+                        <div class="row g-4">
+                            <!-- my code chtgpt -->
+                            <div id="property-container-lease" class="row">
+                                <!-- Properties will be inserted here -->
+                            </div>
+                            <div id="warning-lease" class="alert alert-warning" role="alert" style="display:none">
+                                Sorry!! No Search Found
+                              </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -191,8 +205,9 @@
                     </div>
                     <div class="modal-body">
                         <div style="text-align: center;">
+                            <a class="btn btn-primary" onclick="redirectshare()"><i class="fa fa-eye me-2"></i>View</a>
                             <a href="tel:919959579555" class="btn btn-primary"><i class="fa fa-phone-alt me-2"></i> Call</a>
-                            <a onclick="whatsappmessage()" class="btn btn-primary"><i class="fab fa-whatsapp"  ></i> Whatsapp</a>
+                            <a onclick="whatsappmessage()" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Whatsapp</a>
                             <a id="shareBtn" class="btn btn-primary"><i class="fa fa-share me-2"></i>Share</a>
                         </div>
                     </div>
