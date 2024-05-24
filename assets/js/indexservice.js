@@ -143,7 +143,7 @@ document.getElementById('shareBtn').addEventListener('click', event => {
         path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
     }else if(url===githuburl){
         console.log("github account")
-        path=url+`555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+        path=url+`/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
     }else if(url===productionurl){
         console.log("555venture.in")
         path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
@@ -168,20 +168,26 @@ document.getElementById('shareBtn').addEventListener('click', event => {
 
 function redirectshare(){
     let id= sessionStorage.getItem('shareid');
-    // console.log(window.location.protocol+"//"+window.location.host)
     location.href=`shareproperty.html?id=${encodeURIComponent(id)}`
-    // const url=window.location.protocol+"//"+window.location.host
-    // if(url===localhosturl){
-    //     console.log("localhost")
-    //     location.href=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
-    // }else if(url===githuburl){
-    //     console.log("github account")
-    //     location.href=url+`555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
-    // }else if(url===productionurl){
-    //     console.log("555venture.in")
-    //     location.href=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
-    // }
-//    location.href=`http://127.0.0.1:5500/shareproperty.html?id=${encodeURIComponent(id)}`
+}
+
+function whatsappmessage(){
+    let id= sessionStorage.getItem('shareid');
+    const url=window.location.protocol+"//"+window.location.host
+    let path;
+    if(url===localhosturl){
+        console.log("localhost")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===githuburl){
+        console.log("github account")
+        path=url+`/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===productionurl){
+        console.log("555venture.in")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }
+   // const url=window.location.protocol+"//"+window.location.host+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    const text="https://wa.me/+919959579555?text=I'm%20interested%20in%20your%20property%20sale%20"+path
+    location.href=text;
 }
 
 // Fetch and display properties on page load

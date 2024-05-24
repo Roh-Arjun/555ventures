@@ -39,7 +39,7 @@ function propertySharedDisplay(properties,id){
     const property = properties.find(p => p.id === propertyId);
     // console.log(property)
     if(property!=undefined){
-        console.log("post esxists");
+        console.log("post exists");
         document.getElementById('warning-shared').style.display = 'none';
         document.getElementById('propertyName').innerHTML=property.property_name;
         document.getElementById('estimateCost').innerHTML=property.estimate_cost;
@@ -71,7 +71,7 @@ document.getElementById('shareBtn').addEventListener('click', event => {
         path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
     }else if(url===githuburl){
         console.log("github account")
-        path=url+`555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+        path=url+`/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
     }else if(url===productionurl){
         console.log("555venture.in")
         path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
@@ -92,3 +92,41 @@ document.getElementById('shareBtn').addEventListener('click', event => {
    }
  
  );
+
+ function whatsappmessage(){
+    let id= sessionStorage.getItem('shareid');
+    const url=window.location.protocol+"//"+window.location.host
+    let path;
+    if(url===localhosturl){
+        console.log("localhost")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===githuburl){
+        console.log("github account")
+        path=url+`/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===productionurl){
+        console.log("555venture.in")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }
+   // const url=window.location.protocol+"//"+window.location.host+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    const text="https://wa.me/+919959579555?text=I'm%20interested%20in%20your%20property%20sale%20"+path
+    location.href=text;
+}
+
+function whtsaperror(){
+    let id= sessionStorage.getItem('shareid');
+    const url=window.location.protocol+"//"+window.location.host
+    let path;
+    if(url===localhosturl){
+        console.log("localhost")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===githuburl){
+        console.log("github account")
+        path=url+`/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===productionurl){
+        console.log("555venture.in")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }
+   // const url=window.location.protocol+"//"+window.location.host+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    const text="https://wa.me/+919959579555?text=I'm%20unable%20to%20view%20your%20for%20property%20"+path
+    location.href=text;
+}
