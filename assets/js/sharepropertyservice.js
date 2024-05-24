@@ -1,3 +1,8 @@
+const localhosturl="http://127.0.0.1:5500";
+const githuburl="https://roh-arjun.github.io";
+const productionurl="https://555ventures.in";
+
+
 async function fetchProperties(id) {
     try {
         const response = await fetch('assets/js/data.json');
@@ -54,3 +59,36 @@ function propertySharedDisplay(properties,id){
         document.getElementById('warning-shared').style.display = 'block';
     }
 }
+
+document.getElementById('shareBtn').addEventListener('click', event => {
+    let id= sessionStorage.getItem('shareid');
+    console.log("from share module", id)
+     // Check for Web Share api support
+    const url=window.location.protocol+"//"+window.location.host
+    let path;
+    if(url===localhosturl){
+        console.log("localhost")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===githuburl){
+        console.log("github account")
+        path=url+`555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===productionurl){
+        console.log("555venture.in")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }
+     if (navigator.share) {
+       // Browser supports native share api
+       navigator.share({
+         text: 'Please check this property: ',
+         url: path
+       }).then(() => {
+         console.log('Thanks for sharing!');
+       })
+         .catch((err) => console.error(err));
+     } else {
+       // Fallback
+       alert("The current browser does not support the share function. Please, manually share the link")
+     }
+   }
+ 
+ );

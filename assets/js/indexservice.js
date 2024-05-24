@@ -1,3 +1,7 @@
+const localhosturl="http://127.0.0.1:5500";
+const githuburl="https://roh-arjun.github.io";
+const productionurl="https://555ventures.in";
+
 async function fetchProperties() {
     try {
         const response = await fetch('assets/js/data.json');
@@ -132,12 +136,24 @@ document.getElementById('searchButton').addEventListener('click', function() {
 document.getElementById('shareBtn').addEventListener('click', event => {
    let id= sessionStorage.getItem('shareid');
    console.log("from share modulw", id)
+   const url=window.location.protocol+"//"+window.location.host
+   let path;
+    if(url===localhosturl){
+        console.log("localhost")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===githuburl){
+        console.log("github account")
+        path=url+`555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===productionurl){
+        console.log("555venture.in")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }
     // Check for Web Share api support
     if (navigator.share) {
       // Browser supports native share api
       navigator.share({
         text: 'Please check this property: ',
-        url: `https://roh-arjun.github.io/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+        url: path
       }).then(() => {
         console.log('Thanks for sharing!');
       })
@@ -152,7 +168,19 @@ document.getElementById('shareBtn').addEventListener('click', event => {
 
 function redirectshare(){
     let id= sessionStorage.getItem('shareid');
-    console.log(window.location.protocol+"//"+window.location.host)
+    // console.log(window.location.protocol+"//"+window.location.host)
+    location.href=`shareproperty.html?id=${encodeURIComponent(id)}`
+    // const url=window.location.protocol+"//"+window.location.host
+    // if(url===localhosturl){
+    //     console.log("localhost")
+    //     location.href=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    // }else if(url===githuburl){
+    //     console.log("github account")
+    //     location.href=url+`555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+    // }else if(url===productionurl){
+    //     console.log("555venture.in")
+    //     location.href=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    // }
 //    location.href=`http://127.0.0.1:5500/shareproperty.html?id=${encodeURIComponent(id)}`
 }
 

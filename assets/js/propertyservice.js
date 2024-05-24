@@ -1,16 +1,21 @@
+const localhosturl="http://127.0.0.1:5500";
+const githuburl="https://roh-arjun.github.io";
+const productionurl="https://555ventures.in";
+
+
 async function fetchProperties(property_type,location) {
     try {
         const response = await fetch('assets/js/data.json');
         const properties = await response.json();
         // displayAllProperties(properties);
-        if(property_type===undefined||location===undefined){
+        if(property_type===undefined || location===undefined){
             displayAllProperties(properties)
             displayAllSellProperty(properties)
             displayAllRentProperty(properties)
         }else{
-        displaySearchProperty(properties,property_type,location);
-        displaySellProperty(properties,property_type,location);
-        displayRentProperty(properties,property_type,location);
+            displaySearchProperty(properties,property_type,location);
+            displaySellProperty(properties,property_type,location);
+            displayRentProperty(properties,property_type,location);
         }
     } catch (error) {
         console.error('Error fetching properties:', error);
@@ -288,11 +293,23 @@ document.getElementById('shareBtn').addEventListener('click', event => {
     let id= sessionStorage.getItem('shareid');
     console.log("from share module", id)
      // Check for Web Share api support
+    const url=window.location.protocol+"//"+window.location.host
+    let path;
+    if(url===localhosturl){
+        console.log("localhost")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===githuburl){
+        console.log("github account")
+        path=url+`555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+    }else if(url===productionurl){
+        console.log("555venture.in")
+        path=url+`/shareproperty.html?id=${encodeURIComponent(id)}`
+    }
      if (navigator.share) {
        // Browser supports native share api
        navigator.share({
          text: 'Please check this property: ',
-         url: `https://roh-arjun.github.io/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+         url: path
        }).then(() => {
          console.log('Thanks for sharing!');
        })
