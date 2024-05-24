@@ -86,7 +86,7 @@
                     <!-- <p class="animated fadeIn mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet
                         sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p> -->
                         <h3>Estimate Cost: <span id="estimateCost">30,000</span></h3>
-                    <a href="#" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Contact</a>
+                    <a href="#" class="btn btn-primary py-3 px-5 me-3 animated fadeIn" data-bs-toggle="modal" data-bs-target="#contatusmodal">Contact</a>
                 </div>
                 <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
@@ -140,18 +140,54 @@
         </div>
     </div>
 </div>
-    <!-- <div id="sharedproperty">
-
-    </div> -->
 
     <div id="warning-shared" class="alert alert-warning" role="alert" style="display:none">
-        Sorry!! Post no longer avaliable, or please <a href="#">Contact Us</a>
+        Sorry!! Post no longer avaliable, or please <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact Us</a>
       </div>
         <!-- Back to Top -->
         <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> -->
     </div>
 
+    <!-- Modal1 -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contact US</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                        <a href="tel:919959579555" class="btn btn-primary"><i class="fa fa-phone-alt me-2"></i> Call</a>
+                        <a href="https://wa.me/+919959579555?text=I'm%20unable%20to%20view%20your%20for%20property" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal2 -->
+    <div class="modal fade" id="contatusmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contact US</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                        <a href="tel:919959579555" class="btn btn-primary"><i class="fa fa-phone-alt me-2"></i> Call</a>
+                        <a href="https://wa.me/+919959579555?text=I'm%20unable%20to%20view%20your%20for%20property" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+                        <a id="shareBtn" class="btn btn-primary"><i class="fa fa-share me-2"></i>Share</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 
      <!-- JavaScript Libraries -->
      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

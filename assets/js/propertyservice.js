@@ -5,6 +5,8 @@ async function fetchProperties(property_type,location) {
         // displayAllProperties(properties);
         if(property_type===undefined||location===undefined){
             displayAllProperties(properties)
+            displayAllSellProperty(properties)
+            displayAllRentProperty(properties)
         }else{
         displaySearchProperty(properties,property_type,location);
         displaySellProperty(properties,property_type,location);
@@ -25,16 +27,16 @@ function displayAllProperties(properties) {
     document.getElementById("listedcount").innerHTML=properties.length
     properties.forEach(function(property) {
         var propertyHTML = `
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-4 col-md-6 fadeInUp">
                 <div class="property-item rounded overflow-hidden">
                     <div class="position-relative overflow-hidden">
-                        <a href=""><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                        <a><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
                         <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
                         <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
                     </div>
                     <div class="p-4 pb-0">
                         <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                        <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                     </div>
                     <div class="d-flex border-top">
@@ -46,6 +48,71 @@ function displayAllProperties(properties) {
             </div>
         `;
         container.innerHTML += propertyHTML;
+    });
+}
+//display all sell property
+function displayAllSellProperty(properties){
+    let containersell = document.getElementById('property-container-sell');
+    containersell.innerHTML = ''; // Clear any existing content
+    const filteredPropertiesell = properties.filter(property => property.Availability === "Sell");
+    console.log(properties.length)
+    console.log("total sell property",filteredPropertiesell.length)
+    
+    filteredPropertiesell.forEach(function(property) {
+        let propertyHTML = `
+            <div class="col-lg-4 col-md-6 fadeInUp" >
+                <div class="property-item rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
+                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
+                    </div>
+                    <div class="p-4 pb-0">
+                        <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>${property.sqft}</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>${property.bedroom}</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom}</small>
+                    </div>
+                </div>
+            </div>
+        `;
+        containersell.innerHTML += propertyHTML;
+    });
+}
+
+//display all rent property
+function displayAllRentProperty(properties){
+    let containerent = document.getElementById('property-container-rent');
+    containerent.innerHTML = ''; // Clear any existing content
+    const filteredProperties = properties.filter(property => property.Availability === "Rent");
+    console.log("Total rent property",filteredProperties.length)
+    filteredProperties.forEach(function(property) {
+        let propertyHTML = `
+            <div class="col-lg-4 col-md-6 fadeInUp">
+                <div class="property-item rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
+                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
+                    </div>
+                    <div class="p-4 pb-0">
+                        <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal" >${property.property_name}</a>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>${property.sqft}</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>${property.bedroom}</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>${property.bathroom}</small>
+                    </div>
+                </div>
+            </div>
+        `;
+        containerent.innerHTML += propertyHTML;
     });
 }
 
@@ -92,16 +159,16 @@ function displaySearchProperty(properties,property_type,location){
         document.getElementById('warning-sell').style.display = 'none';
     filteredProperties.forEach(function(property) {
         let propertyHTML = `
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-4 col-md-6 fadeInUp">
                 <div class="property-item rounded overflow-hidden">
                     <div class="position-relative overflow-hidden">
-                        <a href=""><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                        <a><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
                         <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
                         <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
                     </div>
                     <div class="p-4 pb-0">
                         <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                        <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                        <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                     </div>
                     <div class="d-flex border-top">
@@ -148,16 +215,16 @@ function displaySellProperty(properties,property_type,location){
         document.getElementById('warning-sell').style.display = 'none';
         filteredPropertiesell.forEach(function(property) {
             let propertyHTML = `
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 fadeInUp">
                     <div class="property-item rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
-                            <a href=""><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                            <a><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
                             <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
                             <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
                         </div>
                         <div class="p-4 pb-0">
                             <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                            <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                            <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
                             <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                         </div>
                         <div class="d-flex border-top">
@@ -185,16 +252,16 @@ function displayRentProperty(properties,property_type,location){
         document.getElementById('warning-rent').style.display = 'none';
         filteredPropertiesrent.forEach(function(property) {
             let propertyHTML = `    
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 fadeInUp">
                     <div class="property-item rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
-                            <a href=""><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
+                            <a><img class="img-fluid" src="assets/img/property-1.jpg" alt=""></a>
                             <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For ${property.Availability}</div>
                             <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">${property.property_type}</div>
                         </div>
                         <div class="p-4 pb-0">
                             <h5 class="text-primary mb-3">₹ ${property.estimate_cost}</h5>
-                            <a class="d-block h5 mb-2" href="">${property.property_name}</a>
+                            <a class="d-block h5 mb-2" href="" onclick="handleClick(${property.id})" data-bs-toggle="modal" data-bs-target="#exampleModal">${property.property_name}</a>
                             <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property.address}</p>
                         </div>
                         <div class="d-flex border-top">
@@ -211,3 +278,29 @@ function displayRentProperty(properties,property_type,location){
         document.getElementById('warning-rent').style.display = 'block';
     }
 }
+
+function handleClick(id){
+    console.log(id)
+    sessionStorage.setItem('shareid', id);
+}
+
+document.getElementById('shareBtn').addEventListener('click', event => {
+    let id= sessionStorage.getItem('shareid');
+    console.log("from share module", id)
+     // Check for Web Share api support
+     if (navigator.share) {
+       // Browser supports native share api
+       navigator.share({
+         text: 'Please check this property: ',
+         url: `https://roh-arjun.github.io/555ventures/shareproperty.html?id=${encodeURIComponent(id)}`
+       }).then(() => {
+         console.log('Thanks for sharing!');
+       })
+         .catch((err) => console.error(err));
+     } else {
+       // Fallback
+       alert("The current browser does not support the share function. Please, manually share the link")
+     }
+   }
+ 
+ );
