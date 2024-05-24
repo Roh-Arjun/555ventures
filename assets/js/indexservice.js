@@ -150,5 +150,11 @@ document.getElementById('shareBtn').addEventListener('click', event => {
 
 );
 
+function redirectshare(){
+    let id= sessionStorage.getItem('shareid');
+    console.log(window.location.protocol+"//"+window.location.host)
+   // location.href=`http://127.0.0.1:5500/shareproperty.html?id=${encodeURIComponent(id)}`
+}
+
 // Fetch and display properties on page load
 fetchProperties();
