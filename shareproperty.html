@@ -17,6 +17,11 @@
 
 }
     </style>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
     <!-- Favicon -->
     <link href="assets/img/favicon.ico" rel="icon">
 
@@ -90,15 +95,47 @@
                     <a id="googlemap" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Google Map</a>
                 </div>
                 <div class="col-md-6 animated fadeIn">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" class="active"></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                  
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                      <div id="c-img1" class="carousel-item active">
+                        <img id="img1">
+                      </div>
+                      <div id="c-img2" class="carousel-item">
+                        <img id="img2">
+                      </div>
+                      <div id="c-img3" class="carousel-item">    
+                        <img id="img3" > 
+                      </div>
+                    </div>
+                  
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev"  href="#demo" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                    </a>
+                  </div>
+                </div>
+                <!-- <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="assets/img/carousel-1.jpg" alt="">
+                            <img id="img1" class="img-fluid"  alt="">
                         </div>
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="assets/img/carousel-2.jpg" alt="">
+                            <img id="img2" class="img-fluid"  alt="">
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         <div class="container">
         <p id="description"></p>

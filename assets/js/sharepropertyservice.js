@@ -42,7 +42,13 @@ function propertySharedDisplay(properties,id){
         console.log("post exists");
         
         document.getElementById('warning-shared').style.display = 'none';
+
         
+        document.getElementById('img1').setAttribute('src', 'https://drive.google.com/thumbnail?export=view&id=1Bgg3zuL-33zLo2kyAGANiIwIojBU-GX0&sz=w1000');
+        document.getElementById('img2').setAttribute('src', 'https://drive.google.com/thumbnail?export=view&id=1Bgg3zuL-33zLo2kyAGANiIwIojBU-GX0&sz=w1000');
+        document.getElementById('img3').setAttribute('src', 'https://drive.google.com/thumbnail?export=view&id=1Bgg3zuL-33zLo2kyAGANiIwIojBU-GX0&sz=w1000');
+        // $('#c-img2').remove();
+
         if(property.property_name!=="NA"){
             document.getElementById('propertyName').innerHTML=property.property_name;
             // document.getElementById('propertyName').style.display = 'block';
