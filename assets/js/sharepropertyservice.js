@@ -40,18 +40,139 @@ function propertySharedDisplay(properties,id){
     //  console.log(property)
     if(property!=undefined){
         console.log("post exists");
+        
         document.getElementById('warning-shared').style.display = 'none';
-        document.getElementById('propertyName').innerHTML=property.property_name;
+        
+        if(property.property_name!=="NA"){
+            document.getElementById('propertyName').innerHTML=property.property_name;
+            // document.getElementById('propertyName').style.display = 'block';
+            $('#propertyName').show();
+        }else{
+            // document.getElementById('propertyName').style.display = 'none';
+            $('#propertyName').hide();
+        }
+        
+        
         document.getElementById('estimateCost').innerHTML=property.estimate_cost;
-        document.getElementById('description').innerHTML=property.description;
-        document.getElementById('pType').innerHTML=property.type;
-        document.getElementById('propertyType').innerHTML=property.property_type;
-        document.getElementById('sqft').innerHTML=property.sqft;
-        document.getElementById('furnished').innerHTML=property.furnish;
-        document.getElementById('bedroom').innerHTML=property.bedroom;
-        document.getElementById('bathroom').innerHTML=property.bathroom;
-        document.getElementById('address').innerHTML=property.address;
-        document.getElementById('location').innerHTML=property.location
+
+        if(property.description!=="NA"){
+            document.getElementById('description').innerHTML=property.description;
+            $('#description').show();
+            // document.getElementById('description').style.display = 'block';
+        }else{
+            $('#description').hide();
+            // document.getElementById('description').style.display = 'none';
+        }
+        
+        if(property.type!=="NA"){
+            document.getElementById('pType').innerHTML=property.type;
+            // document.getElementById('tr-pType').style.display = 'block';
+            $('#tr-pType').show();
+        }else{
+            $('#tr-pType').hide();
+            // document.getElementById('tr-pType').style.display = 'none';
+        }
+
+        if(property.property_type!=="NA"){
+            document.getElementById('propertyType').innerHTML=property.property_type; 
+            // document.getElementById('tr-propertyType').style.display = 'block';
+            $('#tr-sqft').show();
+        }else{
+            $('#propertyName').hide();
+            // document.getElementById('tr-propertyType').style.display = 'none';
+        }
+        
+        if(property.sqft!=="NA"){
+            document.getElementById('sqft').innerHTML=property.sqft;
+            // document.getElementById('tr-sqft').style.display = 'block';
+            $('#tr-sqft').show();
+        }else{
+           // document.getElementById('tr-sqft').style.display = 'none';
+           $('#tr-sqft').hide();
+        }
+
+        if(property.acres!=="NA"){
+            document.getElementById('acres').innerHTML=property.acres;
+            $('#tr-acres').show();
+        }else{
+            $('#tr-acres').hide();
+        }
+
+        if(property.kutas!=="NA"){
+            document.getElementById('kutas').innerHTML=property.kutas;
+            $('#tr-kutas').show();
+        }else{
+            $('#tr-kutas').hide();
+        }
+
+        if(property.dimension!=="NA"){
+            document.getElementById('dimension').innerHTML=property.dimension;
+            $('#tr-dimension').show();
+        }else{
+            $('#tr-dimension').hide();
+        }
+
+        if(property.facing!=="NA"){
+            document.getElementById('facing').innerHTML=property.facing;
+            $('#tr-facing').show();
+        }else{
+            $('#tr-facing').hide();
+        }
+        
+        if(property.furnish!=="NA"){
+            document.getElementById('furnished').innerHTML=property.furnish;
+            $('#tr-furnished').show();
+            // document.getElementById('tr-furnished').style.display = 'block';
+        }else{
+            $('#tr-furnished').hide();
+            // document.getElementById('tr-furnished').style.display = 'none';
+        }
+        
+        if(property.bedroom!=="NA"){
+            document.getElementById('bedroom').innerHTML=property.bedroom;
+            $('#tr-bedroom').show();
+            // document.getElementById('tr-bedroom').style.display = 'block';
+        }else{
+            $('#tr-bedroom').hide();
+            // document.getElementById('tr-bedroom').style.display = 'none';
+        }
+        
+        if(property.bathroom!=="NA"){
+            document.getElementById('bathroom').innerHTML=property.bathroom;
+            $('#tr-bathroom').show();
+            // document.getElementById('tr-bathroom').style.display = 'block';
+        }else{
+            $('#tr-bathroom').hide();
+            // document.getElementById('tr-bathroom').style.display = 'none';
+        }
+        
+        if(property.address!=="NA"){
+            document.getElementById('address').innerHTML=property.address;
+            $('#tr-address').show();
+            // document.getElementById('tr-address').style.display = 'block';
+        }else{
+            $('#tr-address').hide();
+            // document.getElementById('tr-address').style.display = 'none';
+        }
+
+        if(property.location){
+            document.getElementById('location').innerHTML=property.location
+            $('#tr-location').show();
+            // document.getElementById('tr-location').style.display = 'block';
+        }else{
+            $('#tr-location').hide();
+            // document.getElementById('tr-location').style.display = 'none';
+        }
+        
+        if(property.googlemap!=="NA"){
+            document.getElementById('googlemap').setAttribute('href', property.googlemap);
+            // document.getElementById('googlemap').style.display = 'block';
+            $('#googlemap').show();
+        }else{
+            // document.getElementById('googlemap').style.display = 'none'; 
+            $('#googlemap').hide();
+        }
+
         document.getElementById('sharedelement').style.display = 'block';
     }else{
         console.log("post not exists")
@@ -130,3 +251,4 @@ function whtsaperror(){
     const text="https://wa.me/+919959579555?text=I'm%20unable%20to%20view%20your%20for%20property%20"+path
     location.href=text;
 }
+
