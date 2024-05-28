@@ -9,10 +9,20 @@ async function fetchProperties() {
         displayTopProperties(properties, 6);
         displayRentProperty(properties,6);
         displaySellProperty(properties,6);
-        displayLeaseProperty(properties,6)
+        displayLeaseProperty(properties,6);
+        displayPropertiesCount(properties);
     } catch (error) {
         console.error('Error fetching properties:', error);
     }
+}
+
+function displayPropertiesCount(properties){
+    const RCount = properties.filter(property => property.type === "Residential");
+    const CCount = properties.filter(property => property.type === "Commerical");
+    const PCount = properties.filter(property => property.type === "Plot");
+    document.getElementById('rCount').innerHTML=RCount.length;
+    document.getElementById('cCount').innerHTML=CCount.length;
+    document.getElementById('pCount').innerHTML=PCount.length;
 }
 
 function displayTopProperties(properties, limit) {
