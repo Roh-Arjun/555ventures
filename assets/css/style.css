@@ -441,11 +441,11 @@
 
 
 /* local  guider css */
-.page-title{
+/* .page-title{
     padding-top: 25px;
-}
+} */
 
-.heading-page
+/* .heading-page
   {
       text-transform: uppercase;
       font-size: 43px;
@@ -454,7 +454,7 @@
       color: #7D3F98;
       font-family: mistral;
       text-decoration: underline;
-  }
+  } */
   img {
     vertical-align: middle;
     width: auto;
@@ -472,12 +472,12 @@
     background-color: #7D3F98;
 }
 
-p{
+/* p{
     padding-left: 50px;
     padding-right: 50px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size:medium;
-}
+} */
 
 /* .table{
     display: flex;
