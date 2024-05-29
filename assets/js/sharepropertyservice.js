@@ -44,9 +44,9 @@ function propertySharedDisplay(properties,id){
         document.getElementById('warning-shared').style.display = 'none';
 
         
-        document.getElementById('img1').setAttribute('src', 'https://drive.google.com/thumbnail?export=view&id=1Bgg3zuL-33zLo2kyAGANiIwIojBU-GX0&sz=w1000');
-        document.getElementById('img2').setAttribute('src', 'https://drive.google.com/thumbnail?export=view&id=1Bgg3zuL-33zLo2kyAGANiIwIojBU-GX0&sz=w1000');
-        document.getElementById('img3').setAttribute('src', 'assets/img/property-1.jpg');
+        document.getElementById('img1').setAttribute('src', `https://drive.google.com/thumbnail?export=view&id=${property.img1}&sz=w1000`);
+        document.getElementById('img2').setAttribute('src', `https://drive.google.com/thumbnail?export=view&id=${property.img2}&sz=w1000`);
+        document.getElementById('img3').setAttribute('src', `https://drive.google.com/thumbnail?export=view&id=${property.img3}&sz=w1000`);
         // $('#c-img2').remove();
 
         if(property.property_name!=="NA"){
